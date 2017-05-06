@@ -1,0 +1,67 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Sat May 06 11:53:39 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x002000    program   0x000004
+                   .cinit    romdata   0x002004    program   0x000002
+                   .org_1       code   0x002018    program   0x0000ca
+.config_300000_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x300000    program   0x000001
+.config_300001_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x300001    program   0x000001
+.config_300005_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x300005    program   0x000001
+.config_300006_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x300006    program   0x000001
+.config_300008_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x300008    program   0x000001
+.config_300009_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x300009    program   0x000001
+.config_30000A_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x30000a    program   0x000001
+.config_30000B_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x30000b    program   0x000001
+.config_30000C_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x30000c    program   0x000001
+.config_30000D_BUILD/DEFAULT/PRODUCTION/ANALOGU    romdata   0x30000d    program   0x000001
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x002000    0x002005      
+                            0x002018    0x0020e1      
+                            0x300000    0x300001      
+                            0x300005    0x300006      
+                            0x300008    0x30000d      
+            218 out of 33048 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                ADCONVERT   0x002018    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+               ADCONVLOOP   0x00202e    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                   ADTEST   0x0020d0    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                  CHECKS1   0x0020c6    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+               CHECKTIMER   0x00203c    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                  INITANA   0x0020a2    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                  INITOSC   0x002046    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+             INITOSCWHILE   0x00205e    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                INITPORTS   0x002064    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                     MAIN   0x0020c2    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                TIMEDELAY   0x002038    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                ADCONVERT   0x002018    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+               ADCONVLOOP   0x00202e    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                TIMEDELAY   0x002038    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+               CHECKTIMER   0x00203c    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                  INITOSC   0x002046    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+             INITOSCWHILE   0x00205e    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                INITPORTS   0x002064    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                  INITANA   0x0020a2    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                     MAIN   0x0020c2    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                  CHECKS1   0x0020c6    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+                   ADTEST   0x0020d0    program     static C:\Users\Abhi\Documents\MPLAB\Grade11\Assembly\CHRP-Asm.X\Analogue.asm
+
+
