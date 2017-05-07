@@ -14,6 +14,7 @@
                    projectFiles="true">
       <itemPath>Output.asm</itemPath>
       <itemPath>AnalogueInput.asm</itemPath>
+      <itemPath>Servos.asm</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
