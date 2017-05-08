@@ -18,6 +18,9 @@
    
 ;Set hardware equates.
 S1			equ	3			;PORTE position of pushbutton S1
+Counter			equ     0Ch			;Servo delay counter register
+Position		equ     0Dh			;Servo Position register
+Servo1			equ     0			;Servo I/O port pin
 
 ;Start the program at the reset vector
 
@@ -73,8 +76,8 @@ initPorts			;Configures PORTA and PORTB for digital I/O
     banksel	TRISB
     clrf	TRISB		;Set PORTB LEDS as outputs
     
-    banksel INTCON2
-    bcf	    INTCON2, RBPU	;RBPU = 0  enable PORTB pullup resistors
+    banksel	INTCON2
+    bcf		INTCON2, RBPU	;RBPU = 0  enable PORTB pullup resistors
     
     banksel	LATC
     clrf	LATC    
@@ -98,11 +101,38 @@ initPorts			;Configures PORTA and PORTB for digital I/O
 main
     movlw	11000011b	;Send this pattern to the
     movwf	LATB		;Port B LEDs 
+                 
     
-checkS1
-    btfsc	PORTE,S1	;Check if S1 is pressed
-    goto	checkS1		;If S1 is not pressed, convert analogue
-    goto	001Ch		;If S1 is pressed, go to bootloader
+    ;The trick here is the padded delay loop. The Delay code is made to
+;be 4 instruction cycles long. At 4 MHz, one instruction cycle is 1 us,
+;and 4 instruction cycles take 4 us to execute, so we can execute 250 
+;4-cycle delay loops per ms.
+
+;The first time round, we wait for just under 1 ms (by preloading Counter
+;with 248) after activating the servo. Then we use the position value to 
+;set our delay length (in 4 us increments). When the delay finishes, we
+;deactivate the servo. The result is a 1-2 ms pulse corresponding to the
+;position variable.
+Servo          
+    movlw	248             ;Load Counter with # of cycles for
+    movwf	Counter         ;1 ms Servo Delay
+    bsf		LATC,SERVO1          ;Activate the Servo1 output
+    CALL	Delay           ;Wait for 1ms to pass
+    movf	Position,0	;Load W with servo position
+				;00 & FF=extremes, 128=centre
+    movwf	Counter         ;and store in Counter for next delay
+    call	Delay           ;Keep servo active for position delay
+    bcf		LATC,SERVO1		;Deactivate the Servo1 output
+                
+				;Do other processing here, but
+				;remember to update each servo
+				;approximately once every 20 ms
+
+Delay				;Servo time delay
+    NOP				;Pad the loop with one cycle
+    DECFSZ	Counter         ;Counter=Counter-1
+    GOTO	Delay           ;If Counter is not 0, repeat 
+    RETURN			;If 0, return
     end
     
 ;1 clock cycle seems to be 21ns

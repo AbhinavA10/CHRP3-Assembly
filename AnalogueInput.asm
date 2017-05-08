@@ -24,7 +24,7 @@ adQ2			equ	00000100b		;A-D channel 1 (Q2 phototransistor)
 adVR1			equ	00001000b		;A-D channel 2 (VR1 potentiometer)
 adT1			equ	00001100b		;A-D channel 3 (T1 temperature sensor)
 adVM			equ	00010000b		;A-D channel 4 (+VM power supply voltage divider)
-
+	
 ;Start the program at the reset vector
 
     org	2000h		;Reset vector - start of program memory    
