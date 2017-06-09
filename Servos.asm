@@ -28,7 +28,6 @@ Servo1			equ     0			;Servo I/O port pin
     goto initOsc	;Jump to initialize routine
     org	2018h		;Continue program after the interrupt vector
 
-
 timeDelay		
     movlw	61		;Preload TMR0 for ~50ms time period
     movwf	TMR0
@@ -116,13 +115,13 @@ main
 Servo          
     movlw	248             ;Load Counter with # of cycles for
     movwf	Counter         ;1 ms Servo Delay
-    bsf		LATC,SERVO1          ;Activate the Servo1 output
+    bsf		LATC,SERVO1     ;Activate the Servo1 output
     CALL	Delay           ;Wait for 1ms to pass
     movf	Position,0	;Load W with servo position
 				;00 & FF=extremes, 128=centre
     movwf	Counter         ;and store in Counter for next delay
     call	Delay           ;Keep servo active for position delay
-    bcf		LATC,SERVO1		;Deactivate the Servo1 output
+    bcf		LATC,SERVO1	;Deactivate the Servo1 output
                 
 				;Do other processing here, but
 				;remember to update each servo
@@ -137,4 +136,5 @@ Delay				;Servo time delay
     
 ;1 clock cycle seems to be 21ns
 ; so 48 is around 1us
+; didn't finish it
 ;http://siriusmicro.com/projects/i2servo.html

@@ -55,7 +55,7 @@ initPorts
     banksel	PORTA		
     clrf	PORTA		;Clear all PORTA outputs and turn on Run LED
     
-    ;next 2 lines are for the old processor presumably
+    ;next 2 lines are for the old processor
     ;movlw	01010111b	;Enable Port B pull-ups, TMR0 internal
     ;movwf	OPTION_REG	;clock, and 256 prescaler
     
