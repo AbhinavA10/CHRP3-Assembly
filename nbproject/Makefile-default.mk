@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Output.asm AnalogueInput.asm Servos.asm
+SOURCEFILES_QUOTED_IF_SPACED=Servos.asm
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Output.o ${OBJECTDIR}/AnalogueInput.o ${OBJECTDIR}/Servos.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/Output.o.d ${OBJECTDIR}/AnalogueInput.o.d ${OBJECTDIR}/Servos.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Servos.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/Servos.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Output.o ${OBJECTDIR}/AnalogueInput.o ${OBJECTDIR}/Servos.o
+OBJECTFILES=${OBJECTDIR}/Servos.o
 
 # Source Files
-SOURCEFILES=Output.asm AnalogueInput.asm Servos.asm
+SOURCEFILES=Servos.asm
 
 
 CFLAGS=
@@ -88,22 +88,6 @@ MP_LINKER_DEBUG_OPTION=
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/Output.o: Output.asm  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Output.o.d 
-	@${RM} ${OBJECTDIR}/Output.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/Output.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_SIMULATOR=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/Output.lst\" -e\"${OBJECTDIR}/Output.err\" $(ASM_OPTIONS) -c- -rDEC   -o\"${OBJECTDIR}/Output.o\" \"Output.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/Output.o"
-	@${FIXDEPS} "${OBJECTDIR}/Output.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
-	
-${OBJECTDIR}/AnalogueInput.o: AnalogueInput.asm  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/AnalogueInput.o.d 
-	@${RM} ${OBJECTDIR}/AnalogueInput.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/AnalogueInput.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -d__DEBUG -d__MPLAB_DEBUGGER_SIMULATOR=1 -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/AnalogueInput.lst\" -e\"${OBJECTDIR}/AnalogueInput.err\" $(ASM_OPTIONS) -c- -rDEC   -o\"${OBJECTDIR}/AnalogueInput.o\" \"AnalogueInput.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/AnalogueInput.o"
-	@${FIXDEPS} "${OBJECTDIR}/AnalogueInput.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
-	
 ${OBJECTDIR}/Servos.o: Servos.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Servos.o.d 
@@ -113,22 +97,6 @@ ${OBJECTDIR}/Servos.o: Servos.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${FIXDEPS} "${OBJECTDIR}/Servos.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
 	
 else
-${OBJECTDIR}/Output.o: Output.asm  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Output.o.d 
-	@${RM} ${OBJECTDIR}/Output.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/Output.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/Output.lst\" -e\"${OBJECTDIR}/Output.err\" $(ASM_OPTIONS) -c- -rDEC   -o\"${OBJECTDIR}/Output.o\" \"Output.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/Output.o"
-	@${FIXDEPS} "${OBJECTDIR}/Output.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
-	
-${OBJECTDIR}/AnalogueInput.o: AnalogueInput.asm  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/AnalogueInput.o.d 
-	@${RM} ${OBJECTDIR}/AnalogueInput.o 
-	@${FIXDEPS} dummy.d -e "${OBJECTDIR}/AnalogueInput.err" $(SILENT) -c ${MP_AS} $(MP_EXTRA_AS_PRE) -q -p$(MP_PROCESSOR_OPTION)  -l\"${OBJECTDIR}/AnalogueInput.lst\" -e\"${OBJECTDIR}/AnalogueInput.err\" $(ASM_OPTIONS) -c- -rDEC   -o\"${OBJECTDIR}/AnalogueInput.o\" \"AnalogueInput.asm\" 
-	@${DEP_GEN} -d "${OBJECTDIR}/AnalogueInput.o"
-	@${FIXDEPS} "${OBJECTDIR}/AnalogueInput.o.d" $(SILENT) -rsi ${MP_AS_DIR} -c18 
-	
 ${OBJECTDIR}/Servos.o: Servos.asm  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Servos.o.d 

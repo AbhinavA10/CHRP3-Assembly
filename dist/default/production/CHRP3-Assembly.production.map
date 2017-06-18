@@ -1,0 +1,61 @@
+MPLINK 5.08, LINKER
+Linker Map File - Created Mon May 08 10:43:20 2017
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x002000    program   0x000004
+                   .cinit    romdata   0x002004    program   0x000002
+                   .org_1       code   0x002018    program   0x00008c
+.config_300000_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x300000    program   0x000001
+.config_300001_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x300001    program   0x000001
+.config_300005_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x300005    program   0x000001
+.config_300006_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x300006    program   0x000001
+.config_300008_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x300008    program   0x000001
+.config_300009_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x300009    program   0x000001
+.config_30000A_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x30000a    program   0x000001
+.config_30000B_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x30000b    program   0x000001
+.config_30000C_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x30000c    program   0x000001
+.config_30000D_BUILD/DEFAULT/PRODUCTION/SERVOS.    romdata   0x30000d    program   0x000001
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x002000    0x002005      
+                            0x002018    0x0020a3      
+                            0x300000    0x300001      
+                            0x300005    0x300006      
+                            0x300008    0x30000d      
+            156 out of 33048 program addresses used, program memory utilization is 0%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+               CHECKTIMER   0x00201c    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                    DELAY   0x00209a    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                  INITOSC   0x002026    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+             INITOSCWHILE   0x00203e    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                INITPORTS   0x002044    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                     MAIN   0x002082    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                    SERVO   0x002086    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                TIMEDELAY   0x002018    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                TIMEDELAY   0x002018    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+               CHECKTIMER   0x00201c    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                  INITOSC   0x002026    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+             INITOSCWHILE   0x00203e    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                INITPORTS   0x002044    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                     MAIN   0x002082    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                    SERVO   0x002086    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+                    DELAY   0x00209a    program     static H:\MPLAB\CHRP3-Assembly\Servos.asm
+
+

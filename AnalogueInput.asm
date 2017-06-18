@@ -1,7 +1,7 @@
 ;ANALOGUE INPUT			v3.1	May 4th, 2017
 ;===============================================================================
 ;Description:	Output test program. Initializes the PIC18F25K50 I/O pins for LED
-;output on the CHRP 3.0 based on an analogue potentiometer.
+;output on the CHRP 3.0 PORTB LEDs based on an analogue potentiometer.
 
 ;Configure MPLAB and the microcontroller
 
@@ -18,7 +18,6 @@
 S1			equ	3			;PORTE position of pushbutton S1
 
 ;Set A-D converter channel constants.
-
 adVR1			equ	00001000b		;A-D channel 2 (VR1 potentiometer)
 adVM			equ	00010000b		;A-D channel 4 (+VM power supply voltage divider)
 
