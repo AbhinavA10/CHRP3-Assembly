@@ -1,7 +1,7 @@
 ;SERVO OUTPUT		v3.1	May 8th, 2017
 ;===============================================================================
 ;Description:	Servo Output test program. Initializes the PIC18F25K50 I/O pins 
-;for servo output on the CHRP 3.0
+;for servo output on the CHRP 3.0. Note: this is an work in progress file.
     
     
 ;Configure MPLAB and the microcontroller
@@ -37,25 +37,25 @@ checkTimer
     return			;Return to the calling routine when done
  
 initOsc
-    banksel OSCTUNE
-    movlw   0x80		;3X PLL ratio mode selected
-    movwf   OSCTUNE
+    banksel	OSCTUNE
+    movlw	0x80		;3X PLL ratio mode selected
+    movwf	OSCTUNE
     
-    banksel OSCCON
-    movlw   0x70		;Switch to 16MHz HFINTOSC
-    movwf   OSCCON
+    banksel	OSCCON
+    movlw	0x70		;Switch to 16MHz HFINTOSC
+    movwf	OSCCON
       
-    banksel OSCCON2
-    movlw   0x10		; Enable PLL, SOSC, PRI OSC drivers turned off
-    movwf   OSCCON2
+    banksel	OSCCON2
+    movlw	0x10		; Enable PLL, SOSC, PRI OSC drivers turned off
+    movwf	OSCCON2
     
-    banksel ACTCON
-    movlw   0x90	    	; Enable active clock tuning for USB operation
-    movwf   ACTCON
+    banksel	ACTCON
+    movlw	0x90	    	; Enable active clock tuning for USB operation
+    movwf	ACTCON
     
 initOscWhile			; wait until !PLLRDY
-    btfsc   OSCCON2, PLLRDY
-    goto initOscWhile
+    btfsc	OSCCON2, PLLRDY
+    goto	initOscWhile
 	
 initPorts			;Configures PORTA and PORTB for digital I/O
     banksel	LATA
@@ -73,8 +73,8 @@ initPorts			;Configures PORTA and PORTB for digital I/O
     banksel	TRISB
     clrf	TRISB		;Set PORTB LEDS as outputs
     
-    banksel INTCON2
-    bcf	    INTCON2, RBPU	;RBPU = 0  enable PORTB pullup resistors
+    banksel	INTCON2
+    bcf		INTCON2, RBPU	;RBPU = 0  enable PORTB pullup resistors
     
     banksel	LATC
     clrf	LATC    

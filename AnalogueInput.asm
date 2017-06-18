@@ -19,10 +19,7 @@ S1			equ	3			;PORTE position of pushbutton S1
 
 ;Set A-D converter channel constants.
 
-adQ1			equ	00000000b		;A-D channel 0 (Q1 phototransistor)
-adQ2			equ	00000100b		;A-D channel 1 (Q2 phototransistor)
 adVR1			equ	00001000b		;A-D channel 2 (VR1 potentiometer)
-adT1			equ	00001100b		;A-D channel 3 (T1 temperature sensor)
 adVM			equ	00010000b		;A-D channel 4 (+VM power supply voltage divider)
 
 ;Start the program at the reset vector
@@ -31,7 +28,6 @@ adVM			equ	00010000b		;A-D channel 4 (+VM power supply voltage divider)
     goto initOsc	;Jump to initialize routine
     org	2018h		;Continue program after the interrupt vector
     
-
 adConvert		
     ;First, selects A-D channel by non-destructively writing the
     ;channel code from W into ADCON0 (see channel constants, above).
@@ -45,7 +41,7 @@ adConvert
     movf	ADRESH,W	;Get stored channel select bits from ADRES
     iorwf	ADCON0,F	;and set channel bits by logical ORing
     nop				;Allow input to settle after channel switch
-    nop				
+    nop				;nope
     nop				
     nop				
     bsf		ADCON0,GO	;Start the A/D conversion
@@ -67,25 +63,25 @@ checkTimer
     return			;Return to the calling routine when done
  
 initOsc
-    banksel OSCTUNE
-    movlw   0x80		;3X PLL ratio mode selected
-    movwf   OSCTUNE
+    banksel	OSCTUNE
+    movlw	0x80		;3X PLL ratio mode selected
+    movwf	OSCTUNE
     
-    banksel OSCCON
-    movlw   0x70		;Switch to 16MHz HFINTOSC
-    movwf   OSCCON
+    banksel	OSCCON
+    movlw	0x70		;Switch to 16MHz HFINTOSC
+    movwf	OSCCON
       
-    banksel OSCCON2
-    movlw   0x10		; Enable PLL, SOSC, PRI OSC drivers turned off
-    movwf   OSCCON2
+    banksel	OSCCON2
+    movlw	0x10		; Enable PLL, SOSC, PRI OSC drivers turned off
+    movwf	OSCCON2
     
-    banksel ACTCON
-    movlw   0x90	    	; Enable active clock tuning for USB operation
-    movwf   ACTCON
+    banksel	ACTCON
+    movlw	0x90	    	; Enable active clock tuning for USB operation
+    movwf	ACTCON
     
 initOscWhile			; wait until !PLLRDY
-    btfsc   OSCCON2, PLLRDY
-    goto initOscWhile
+    btfsc	OSCCON2, PLLRDY
+    goto	initOscWhile
 	
 initPorts			;Configures PORTA and PORTB for digital I/O
     banksel	LATA
@@ -103,8 +99,8 @@ initPorts			;Configures PORTA and PORTB for digital I/O
     banksel	TRISB
     clrf	TRISB		;Set PORTB LEDS as outputs
     
-    banksel INTCON2
-    bcf	    INTCON2, RBPU	;RBPU = 0  enable PORTB pullup resistors
+    banksel	INTCON2
+    bcf		INTCON2, RBPU	;RBPU = 0  enable PORTB pullup resistors
     
     banksel	LATC
     clrf	LATC    
@@ -152,7 +148,7 @@ main
 checkS1
     btfsc	PORTE,S1	;Check if S1 is pressed
     goto	adTest		;If S1 is not pressed, convert analogue
-    goto	001Ch		;If S1 is pressed, go to booloader
+    goto	001Ch		;If S1 is pressed, go to bootloader
        
 adTest				;Display analogue value on Port B LEDs.
     movlw	adVR1		;Set A-D input channel to potentiometer

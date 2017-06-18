@@ -21,26 +21,25 @@
     org	2018h		;Continue program after the interrupt vector
 
 initOsc	
-    banksel OSCTUNE
-    movlw   0x80		;3X PLL ratio mode selected
-    movwf   OSCTUNE
+    banksel	OSCTUNE
+    movlw	0x80		;3X PLL ratio mode selected
+    movwf	OSCTUNE
     
-    banksel OSCCON
-    movlw   0x70		;Switch to 16MHz HFINTOSC
-    movwf   OSCCON
+    banksel	OSCCON
+    movlw	0x70		;Switch to 16MHz HFINTOSC
+    movwf	OSCCON
       
-    banksel OSCCON2
-    movlw   0x10		; Enable PLL, SOSC, PRI OSC drivers turned off
-    movwf   OSCCON2
+    banksel	OSCCON2
+    movlw	0x10		; Enable PLL, SOSC, PRI OSC drivers turned off
+    movwf	OSCCON2
     
-    banksel ACTCON
-    movlw   0x90	    	; Enable active clock tuning for USB operation
-    movwf   ACTCON
+    banksel	ACTCON
+    movlw	0x90	    	; Enable active clock tuning for USB operation
+    movwf	ACTCON
   
 initOscWhile			; wait until !PLLRDY
-    ;btfss PLLRDY, 1 ;why 1???
-    btfsc   OSCCON2, PLLRDY
-    goto initOscWhile
+    btfsc	OSCCON2, PLLRDY
+    goto	initOscWhile
 	
 initPorts
     ;Configures PORTA and PORTB for digital I/O
@@ -55,7 +54,7 @@ initPorts
     banksel	PORTA		
     clrf	PORTA		;Clear all PORTA outputs and turn on Run LED
     
-    ;next 2 lines are for the old processor presumably
+    ;next 2 lines are for the old processor
     ;movlw	01010111b	;Enable Port B pull-ups, TMR0 internal
     ;movwf	OPTION_REG	;clock, and 256 prescaler
     
@@ -67,7 +66,7 @@ initPorts
     clrf	TRISB
     banksel	PORTB		
     clrf	PORTB
-    ;RBPU = 0			; something about PORTB pullup resistors?
+    ;RBPU = 0			;PORTB pullup resistors
     banksel	LATC
     clrf	LATC    
     banksel	ANSELC		;Switch register banks
